@@ -1,7 +1,9 @@
 var baseUrl = "http://localhost:8080/api/";
 
+
 $(document).ready(function(){
 console.log("doc ready");
+
 
  function getData(){
     /**    $.ajax({
@@ -30,7 +32,8 @@ console.log("doc ready");
 
             var jsonObject={
                 flightNumber: $("#flightNumber").val(),
-                petrol: Number($("#petrol").val())
+                petrol: Number($("#petrol").val()),
+                location: $("#location").val(),
             };
 
                 $.ajax({
@@ -56,6 +59,6 @@ console.log("doc ready");
 
 
 function createPlaneString(plane){
-    result = "<tr><td>"+plane.flightNumber+"</td><td>"+plane.petrol+"</td></tr>";
+    result = "<tr><td>"+plane.flightNumber+"</td><td>"+plane.petrol+"</td><td>"+plane.location+"</td></tr>";
 return result;
 }

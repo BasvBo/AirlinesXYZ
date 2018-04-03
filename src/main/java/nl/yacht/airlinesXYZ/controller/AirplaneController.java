@@ -3,10 +3,7 @@ package nl.yacht.airlinesXYZ.controller;
 import nl.yacht.airlinesXYZ.model.Airplane;
 import nl.yacht.airlinesXYZ.repository.AirplaneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/airplane")
@@ -16,14 +13,30 @@ public class AirplaneController {
     private AirplaneRepository airplaneRepository;
 
 
-    @RequestMapping(value = "",method = RequestMethod.GET)
-    public Iterable<Airplane> getAll(){
+    //get al airplanes
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public Iterable<Airplane> getAll() {
         Iterable<Airplane> airplanes = this.airplaneRepository.findAll();
         return airplanes;
     }
 
-    @RequestMapping(value = "",method = RequestMethod.POST)
-    public Airplane creat(@RequestBody Airplane airplane){
+    //save airplane
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public Airplane creat(@RequestBody Airplane airplane) {
         return this.airplaneRepository.save(airplane);
     }
+
+    //change existing airplane
+    @PutMapping(value = "{id}")
+    public Airplane update(@PathVariable Long id, @RequestBody Airplane input) {
+        return this.airplaneRepository.save(input);
+    }
+
+    //delete airplane
+    @DeleteMapping(value = "{id}")
+    public void delete(@PathVariable Long id) {
+        this.airplaneRepository.deleteById(id);
+    }
+
 }
+

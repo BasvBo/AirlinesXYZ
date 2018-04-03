@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <title>Airline XYZ Control</title>
 
-
-
-
     <!--css imports-->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+
     <!--javascript imports-->
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
 
 </head>
 <body>
@@ -22,6 +28,8 @@
 <input type="text" id="flightNumber" name="flightNumber" placeholder="Flight Number">
 <br>
 <input type="text" id="petrol" name="petrol" placeholder="Petrol in ton">
+<br>
+<input type="text" id="location" name="location" placeholder="location">
 <br>
 <button type="button"id="addAirplaneButton">Save Flight</button>
 <br>
@@ -32,15 +40,46 @@
     <tr>
         <th>Flight Number</th>
         <th>Petrol in Ton</th>
+        <th>Location</th>
     </tr>
     </thead>
     <tfoot>
     <tr>
         <th>Flight Number</th>
         <th>Petrol in Ton</th>
+        <th>Location</th>
     </tr>
     </tfoot>
 </table>
+
+
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="deselect()" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title" id="modal-title">Title</h3>
+            </div>
+            <div class="modal-body">
+                <form id="plaenForm" enctype='text/plain'>
+                    First name:<br>
+                    <input type='text' class="form-control" name='flightNumber' id="flightNumber"><br>
+                    Last name:<br>
+                    <input type='text' class="form-control" name='petrol' id="petrol"><br>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
+                <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover" data-placement="top" class="btn btn-danger">Delete</a>
+                <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

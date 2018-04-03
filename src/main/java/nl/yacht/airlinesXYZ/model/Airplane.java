@@ -13,6 +13,7 @@ public class Airplane {
     private long id;
     private String flightNumber;
     private int petrol;
+    private String location;
 
 
     public long getId() {
@@ -37,5 +38,13 @@ public class Airplane {
 
     public void setPetrol(int petrol) {
         this.petrol = petrol;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
