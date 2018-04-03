@@ -1,4 +1,9 @@
 package nl.yacht.airlinesXYZ.repository;
 
-public class AirplaneRepository {
+import nl.yacht.airlinesXYZ.model.Airplane;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface AirplaneRepository extends CrudRepository<Airplane, Long> {
 }
