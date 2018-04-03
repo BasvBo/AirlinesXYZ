@@ -4,7 +4,7 @@ $(document).ready(function(){
 console.log("doc ready");
 
  function getData(){
-        $.ajax({
+    /**    $.ajax({
 
         url : baseUrl+"airplane",
 
@@ -22,6 +22,8 @@ console.log("doc ready");
             $("#airplanedata").html(airplanedata);
            }
         });
+        */
+            $('#airplanedata').DataTable().ajax.reload();
      }
 
     $("#addAirplaneButton").click(function(){
